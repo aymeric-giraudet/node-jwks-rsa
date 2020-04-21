@@ -15,6 +15,10 @@ declare namespace JwksRsa {
     [key: string]: string;
   }
 
+  interface AgentOptions {
+    [key: string]: string;
+  }
+
   interface ClientOptions {
     jwksUri: string;
     rateLimit?: boolean;
@@ -26,6 +30,8 @@ declare namespace JwksRsa {
     strictSsl?: boolean;
     requestHeaders?: Headers;
     timeout?: number;
+    requestAgentOptions?: AgentOptions;
+    handleSigningKeyError?(err: Error, cb: (err: Error) => void): any;
   }
 
   interface CertSigningKey {
@@ -33,23 +39,6 @@ declare namespace JwksRsa {
     nbf: string;
     getPublicKey(): string;
     publicKey: string;
-  }
-
-  interface AgentOptions {
-    [key: string]: string;
-  }
-
-  interface Options {
-    jwksUri: string;
-    rateLimit?: boolean;
-    cache?: boolean;
-    cacheMaxEntries?: number;
-    cacheMaxAge?: number;
-    jwksRequestsPerMinute?: number;
-    strictSsl?: boolean;
-    requestHeaders?: Headers;
-    requestAgentOptions?: AgentOptions;
-    handleSigningKeyError?(err: Error, cb: (err: Error) => void): any;
   }
 
   interface RsaSigningKey {
