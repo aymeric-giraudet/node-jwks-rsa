@@ -39,7 +39,8 @@ export class JwksClient {
       headers: this.options.requestHeaders,
       agentOptions: this.options.requestAgentOptions,
       proxy: this.options.proxy,
-      timeout: this.options.timeout
+      timeout: this.options.timeout,
+      httpsAgent: this.options.httpsAgent
     }, (err, res) => {
       if (err) {
         const errorResponse = err.response;
