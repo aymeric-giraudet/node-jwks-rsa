@@ -30,6 +30,10 @@ export default function(options, cb) {
     requestOptions.httpsAgent = new https.Agent(agentOptions);
   }
 
+  if(options.httpsAgent) {
+    requestOptions.httpsAgent = options.httpsAgent;
+  }
+
   request(requestOptions)
     .then(response => cb(null, response))
     .catch(err => cb(err));

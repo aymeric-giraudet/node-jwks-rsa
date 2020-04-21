@@ -1,4 +1,5 @@
 import { SecretCallback, SecretCallbackLong } from 'express-jwt';
+import { Agent } from 'https';
 
 declare function JwksRsa(options: JwksRsa.ClientOptions): JwksRsa.JwksClient;
 
@@ -26,6 +27,7 @@ declare namespace JwksRsa {
     strictSsl?: boolean;
     requestHeaders?: Headers;
     timeout?: number;
+    httpsAgent?: Agent;
   }
 
   interface CertSigningKey {
